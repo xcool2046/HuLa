@@ -37,7 +37,7 @@
     "========= 生成icon =========": "",
     "tauri:icon": "tauri icon public/logo.png",
     "========= 安装依赖前执行 =========": "",
-    "preinstall": "npx only-allow pnpm && node scripts/check-all.js",
+    "preinstall": "npx only-allow pnpm && (node scripts/check-all.js || ([ \"$CI\" = \"true\" ] && echo 'INFO: Rust check failed/skipped in CI environment, proceeding with install.' && exit 0 || exit 1))",
     "========= 使用commit来进行代码提交 =========": "",
     "commit": "git add . && git-cz",
     "========= 校验代码规范 =========": "",
